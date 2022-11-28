@@ -1,19 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
-/* font-family: 'Dancing Script', cursive; */
-/* font-family: 'Roboto', sans-serif; */
-/* font-family: 'Barlow', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-.dark_theme {
-  --primary-clr: #0e141b;
-  --secondary-clr: #ffffff;
-  --main-font-clr: #ff5277;
-  --main-font-clr-hover: #ff527820;
-  --gray-clr: #818a91;
-  --hover-clr: #252526;
-  --border-clr: #38b2ac;
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Lato', sans-serif; */
+
+.theme-dark {
+  --primary-bg: #0d1117;
+  --secondary-bg: #161b22;
+  --primary-font-clr: #e0e0e0;
+  --secondary-font-clr: #58a6ff;
 }
 
 * {
@@ -23,26 +18,11 @@
 }
 
 body {
-  background-color: var(--primary-clr);
+  background-color: var(--primary-bg);
+  color: var(--primary-font-clr);
+  font-family: "Lato", sans-serif;
 }
 
-.container {
-  width: 1200px;
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-ul {
+li {
   list-style: none;
-  text-decoration: none;
-}
-
-a {
-  text-decoration: none;
-  color: var(--gray-clr);
-}
-
-button {
-  border: none;
-  outline: none;
 }

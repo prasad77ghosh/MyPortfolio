@@ -1,41 +1,41 @@
 import React from "react";
 import styles from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+
 const Navbar = () => {
+   const boxVarient = {
+     hidden: {
+       y: "-100vw",
+     },
+     visible: {
+       y: 0,
+       transition: {
+         delay: 0.5,
+         type: "spring",
+         stiffness: 35,
+       },
+     },
+   };
+
   return (
     <>
-      <nav className="container">
-        <div className={styles.main_cont}>
-          <div className={styles.logo_cont}>
-            <p>
-              <span className={styles.first_let}>E</span>ng .
-            </p>
-            <p>
-              <span className={styles.first_let}>P</span>rasad{" "}
-            </p>
-          </div>
-
-          <div className={styles.nav_links_cont}>
-            <ul className={styles.nav_links}>
-              <li>
-                <NavLink>Home</NavLink>
-              </li>
-              <li>
-                <NavLink>Projects</NavLink>
-              </li>
-              <li>
-                <NavLink>Notes</NavLink>
-              </li>
-              <li>
-                <NavLink>About</NavLink>
-              </li>
-              <li>
-                <NavLink>Contact</NavLink>
-              </li>
-            </ul>
-          </div>
+      <motion.div
+        className={styles.nav_cont}
+        variants={boxVarient}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className={styles.nav}>
+          <h1 className={styles.logo}>Eng. Prasad</h1>
+          <ul className={styles.list}>
+            <li className={styles.list_item}>Home</li>
+            <li className={styles.list_item}>About</li>
+            <li className={styles.list_item}>Projects</li>
+            <li className={styles.list_item}>Notes</li>
+            <li className={styles.list_item}>Conatct</li>
+          </ul>
         </div>
-      </nav>
+      </motion.div>
     </>
   );
 };

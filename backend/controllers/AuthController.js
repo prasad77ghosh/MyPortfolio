@@ -2,6 +2,7 @@ import User from "../models/User.js";
 import { ErrorHandler } from "../services/ErrorHandler.js";
 import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
+import { sendMail } from "../services/SendEmail.js";
 
 //login
 export const login = asyncHandler(async (req, res, next) => {
@@ -51,4 +52,35 @@ export const getUser = asyncHandler(async (req, res, next) => {
     success: true,
     user,
   });
+});
+
+// get Profile
+export const myProfile = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+  if (!user) {
+    return next(new ErrorHandler("User Does't exist", 404));
+  }
+  res.status(400).json({
+    success: true,
+    user,
+  });
+});
+
+// conatct to admin
+export const contact = asyncHandler(async (req, res, next) => {
+  const { name, email, message } = req.body;
+  if (!name || !email || !message) {
+    return next(new ErrorHandler("All fields must be provided.", 400));
+  }
+
+  try {
+    const emailMessage = `Hey, I am ${name}. My email is ${email}\n My message is :- ${message}.`;
+    await sendMail(emailMessage);
+    res.status(200).json({
+      success: true,
+      message: "Email sent successfully..",
+    });
+  } catch (error) {
+    return next(new ErrorHandler(error.message, 500));
+  }
 });

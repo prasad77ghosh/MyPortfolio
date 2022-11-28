@@ -1,9 +1,9 @@
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
-import { ErrorHandler } from "../services/ErrorHandler";
+import { ErrorHandler } from "../services/ErrorHandler.js";
 import asyncHandler from "express-async-handler";
 
-export const isAuthenticated = asyncHandler(async (res, res, next) => {
+export const isAuthenticated = asyncHandler(async (req, res, next) => {
   const { token } = req.cookies;
 
   if (!token) {
