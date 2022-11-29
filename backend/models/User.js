@@ -51,10 +51,6 @@ const UserModel = new mongoose.Schema(
         },
       },
     },
-    achievements: [{ url: String, description: String }],
-    // skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skill" }],
-    // projects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }],
-    // notes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Note" }],
   },
   { timestaps: true }
 );

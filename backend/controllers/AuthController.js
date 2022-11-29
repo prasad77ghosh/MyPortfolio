@@ -3,6 +3,7 @@ import { ErrorHandler } from "../services/ErrorHandler.js";
 import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 import { sendMail } from "../services/SendEmail.js";
+import cloudinary from "cloudinary";
 
 //login
 export const login = asyncHandler(async (req, res, next) => {
@@ -83,4 +84,62 @@ export const contact = asyncHandler(async (req, res, next) => {
   } catch (error) {
     return next(new ErrorHandler(error.message, 500));
   }
+});
+
+// update User
+
+export const updateUser = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+  const { name, email, password, about } = req.body;
+
+  if (!name || !email || !password || !about) {
+    return next(new ErrorHandler("All Fields Are Required..", 500));
+  }
+  if (name) {
+    user.name = name;
+  }
+  if (email) {
+    user.email = email;
+  }
+  if (password) {
+    user.password = password;
+  }
+
+  if (about) {
+    if (about.name) {
+      user.about.name = about.name;
+    }
+
+    if (about.title) {
+      user.about.title = about.title;
+    }
+
+    if (about.subTitle) {
+      user.about.subTitle = about.subTitle;
+    }
+    if (about.description) {
+      user.about.description = about.description;
+    }
+
+    if (about.quote) {
+      user.about.quote = about.quote;
+    }
+
+    if (about.avatar) {
+      await cloudinary.v2.uploader.destroy(user.about.avatar.public_id);
+      const myCloud = await cloudinary.v2.uploader.upload(about.avatar, {
+        folder: "Portfolio",
+      });
+      user.about.avatar = {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      };
+    }
+  }
+
+  await user.save();
+  res.status(200).json({
+    success: true,
+    message: "User Updated Successfully",
+  });
 });
