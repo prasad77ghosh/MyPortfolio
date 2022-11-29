@@ -7,8 +7,11 @@
 .theme-dark {
   --primary-bg: #0d1117;
   --secondary-bg: #161b22;
+  --secondary-bg1: #161b226b;
   --primary-font-clr: #e0e0e0;
   --secondary-font-clr: #58a6ff;
+  --secondary-font-clr1: #08fdd8;
+  --secondary-font-clr2: #fd2155;
 }
 
 * {
@@ -25,4 +28,9 @@ body {
 
 li {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-font-clr);
 }
