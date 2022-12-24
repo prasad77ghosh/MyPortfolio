@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import profileImg from "../images/MyProfile.png";
+import { motion } from "framer-motion";
 const Navigation = () => {
   return (
     <NavigationStyle>
@@ -72,7 +73,7 @@ const NavigationStyle = styled.div`
       a {
         display: block;
         font-size: 1.6rem;
-        padding: 1.5rem 4rem;
+        padding: 1.7rem 4rem;
         position: relative;
         z-index: 10;
         text-transform: uppercase;
