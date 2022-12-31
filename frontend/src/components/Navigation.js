@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import profileImg from "../images/MyProfile.png";
-import { motion } from "framer-motion";
 const Navigation = () => {
   return (
     <NavigationStyle>
@@ -23,7 +22,7 @@ const Navigation = () => {
           <NavLink to="/portfolios">Portfolios</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/blogs">Notes</NavLink>
+          <NavLink to="/notes">Notes</NavLink>
         </li>
         <li className="nav-item">
           <NavLink to="/contact">Contact</NavLink>
@@ -31,7 +30,7 @@ const Navigation = () => {
       </ul>
       <footer className="footer">
         <p>
-          @2021 <b>Lorem Ipsum</b>
+          @2022 :) <b> By Prasad</b>
         </p>
       </footer>
     </NavigationStyle>

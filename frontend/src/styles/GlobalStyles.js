@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
 
 :root{
     --primary-color: #007bff;
+    --primary-color-hover: #026cde;
     --primary-color-light: #057FFF;
     --secondary-color: #6c757d;
     --background-dark-color: #10121A;
@@ -25,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 html{
@@ -50,8 +52,17 @@ a{
     text-decoration: none;
 }
 
+button{
+  border: none;
+  outline: none;
+}
+
 h1{
   font-size: 4rem;
+}
+
+h2{
+  font-size: 3rem;
 }
 
 `;

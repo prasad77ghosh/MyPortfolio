@@ -22,7 +22,7 @@ const Particle = () => {
           },
           particles: {
             number: {
-              value: 400,
+              value: 300,
               density: {
                 enable: true,
               },
@@ -44,7 +44,7 @@ const Particle = () => {
               },
             },
             size: {
-              value: 7,
+              value: 5,
               random: true,
               anim: {
                 enable: false,
