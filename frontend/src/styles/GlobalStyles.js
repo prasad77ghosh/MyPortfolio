@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
 
 :root{
     --primary-color: #007bff;
-    --primary-color-hover: #026cde;
+    --primary-color-hover: #0357b2;
     --primary-color-light: #057FFF;
     --secondary-color: #6c757d;
     --background-dark-color: #10121A;

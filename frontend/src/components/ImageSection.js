@@ -100,6 +100,12 @@ const ImageSectionStyled = styled.div`
         background-color: var(--primary-color-light);
         font-weight: bold;
         color: var(--white-color);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      button:hover {
+        background-color: var(--primary-color-hover);
       }
     }
   }
