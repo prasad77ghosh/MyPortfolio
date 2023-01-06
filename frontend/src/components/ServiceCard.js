@@ -18,13 +18,14 @@ const ServiceCardStyled = styled.div`
   background-color: var(--background-dark-grey);
   border-radius: 5px;
   .container {
-    max-width: 30rem;
-    min-width: 30rem;
+    max-width: 26.4rem;
+    min-width: 26.4rem;
     padding: 1.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 0.5rem;
     text-align: center;
 
     h3 {
