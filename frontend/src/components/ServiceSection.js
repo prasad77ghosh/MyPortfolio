@@ -2,7 +2,7 @@ import React from "react";
 import { InnerLayout } from "./Layout";
 import styled from "styled-components";
 import Title from "./Title";
-import ServiceCard from "./ServiceCard";
+import ServiceCard from "./subcomponents/ServiceCard";
 import design from "../images/design.svg";
 import Intelligence from "../images/intelligence.svg";
 import gameDev from "../images/game-dev.svg";
@@ -11,12 +11,14 @@ import { FiChevronRight } from "react-icons/fi";
 const ServiceSection = () => {
   const scrollLeftHander = () => {
     const serviceBox = document.querySelector(".services");
-    serviceBox.scrollLeft = serviceBox.scrollLeft + 500;
+    const width = serviceBox.clientWidth;
+    serviceBox.scrollLeft = serviceBox.scrollLeft - width;
   };
 
   const scrollRightHandler = () => {
     const serviceBox = document.querySelector(".services");
-    serviceBox.scrollLeft = serviceBox.scrollLeft - 500;
+    const width = serviceBox.clientWidth;
+    serviceBox.scrollLeft = serviceBox.scrollLeft + width;
   };
   return (
     <>
@@ -97,7 +99,7 @@ const ServiceSectionStyle = styled.div`
     .leftBtn {
       position: absolute;
       left: 0;
-      top: 50%;
+      top: 53%;
       text-align: center;
       background-color: var(--primary-color-hover);
       padding: 0.3rem;
@@ -108,7 +110,7 @@ const ServiceSectionStyle = styled.div`
     .rightBtn {
       position: absolute;
       right: 0;
-      top: 50%;
+      top: 53%;
       text-align: center;
       background-color: var(--primary-color-hover);
       padding: 0.3rem;
